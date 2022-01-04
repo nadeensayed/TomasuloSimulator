@@ -1,17 +1,19 @@
 # TomasuloSimulator
 
 **Development Process**:
+
 The first step in the development of our code was to decide the architecture of
 our Tomasulo simulator. We have 2 reservation stations for ADD/SUB operations,
 2 reservation stations for MUL/DIV operations, 2 load buffers and 2 store buffers.
 Then, we chose the data structure for each component:
- Our memory is a double array with capacity of 200.
- Created a class called reservationStation which contains all the attributes of
+
+-Our memory is a double array with capacity of 200.
+-Created a class called reservationStation which contains all the attributes of
 a reservation station (busy, QJ, op, etc…)
- Created a class called register which contains the Q and the value of each
+-Created a class called register which contains the Q and the value of each
 register
- The register file is an array of register class with capacity 32
- Each of the 4 reservation stations (ADD/SUB, MUL/DIV, LD and SD) is an
+-The register file is an array of register class with capacity 32
+-Each of the 4 reservation stations (ADD/SUB, MUL/DIV, LD and SD) is an
 array of reservationStation class with capacity of 2
 The last step of the development process was to make some assumptions. The
 first assumption was that the loads and store can access the memory in the same
@@ -19,6 +21,7 @@ cycle. The second assumption was that only one instruction can write back in a
 cycle and that instruction is chosen randomly.
 
 **Running Process**:
+
 Our class is named simulator. The first thing that happens in the constructor is
 initializing all registers and reservation stations. Then we call a method called
 simulate. In this method the assembly code instructions are scanned from a text
@@ -40,9 +43,11 @@ the end of the loop the number of cycles is incremented.
 
 **Testing Process**:
 These are the test cases we used to test our code with latencies:
+
 ADD and SUB =3
 MUL and DIV =2
 LD and SD =1
+
 LD F0 100
 ADD F2 F0 F0
 
